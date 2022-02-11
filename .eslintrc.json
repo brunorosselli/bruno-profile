@@ -1,40 +1,126 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
-    },
     "extends": [
-        "plugin:react/recommended",
-        "airbnb"
+        "airbnb",
+        "plugin:cypress/recommended"
     ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": "latest",
-        "sourceType": "module"
+    "plugins": [
+        "react",
+        "jest"
+    ],
+    "env": {
+        "browser": true
+    },
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly",
+        "require": false,
+        "process": false,
+        "I18n": "writable"
     },
     "rules": {
-        "linebreak-style": 0,
-        "react/jsx-filename-extension": [
+        //Basic rules
+        "import/named": "off",
+        "import/no-named-as-default-member": "off",
+        "import/no-named-as-default": "off",
+        "function-paren-newline": "off",
+        "no-underscore-dangle": "off",
+        "import/no-unresolved": "off",
+        "comma-dangle": "off",
+        "operator-linebreak": "off",
+        "implicit-arrow-linebreak": "off",
+        "object-curly-newline": "off",
+        "no-param-reassign": 0,
+        "import/no-extraneous-dependencies": [
             "error",
             {
-                "extensions": [
-                    ".js",
-                    ".jsx"
+                "devDependencies": true
+            }
+        ],
+        "arrow-parens": [
+            "error",
+            "as-needed"
+        ],
+        "brace-style": [
+            "error",
+            "1tbs"
+        ],
+        "class-methods-use-this": 0,
+        "curly": [
+            "error",
+            "all"
+        ],
+        "import/prefer-default-export": "off",
+        "quotes": "off",
+        "linebreak-style": 0,
+        "max-len": [
+            "warn",
+            {
+                "code": 120,
+                "ignoreComments": true,
+                "ignoreTemplateLiterals": true
+            }
+        ],
+        "no-console": [
+            "error",
+            {
+                "allow": [
+                    "error"
                 ]
             }
         ],
-        "global-require": "off",
-        "import/prefer-default-export": "off",
-        "no-unused-expressions": [
+        "sort-imports": [
+            2,
+            {
+                "ignoreCase": false,
+                "ignoreMemberSort": false,
+                "ignoreDeclarationSort": true
+            }
+        ],
+        //React rules
+        "react/destructuring-assignment": 1,
+        "react/no-array-index-key": "off",
+        "react-hooks/exhaustive-deps": 0,
+        "react/jsx-filename-extension": 0,
+        "react/jsx-fragments": 0,
+        "react/jsx-key": [
             "error",
             {
-                "allowTaggedTemplates": true
+                "checkFragmentShorthand": true
             }
-        ]
+        ],
+        "react/jsx-props-no-spreading": "off",
+        "react/prop-types": 1,
+        //Jest rules
+        "jest/prefer-expect-assertions": 0,
+        "jest/prefer-inline-snapshots": 0,
+        "jest/no-hooks": "error"
     },
-    "plugins": [
-        "react"
+    "overrides": [
+        {
+            "files": [
+                "*.test.js*",
+                "index.jsx",
+                "cypress/**/*.js"
+            ],
+            "rules": {
+                "global-require": 0,
+                "no-undef": 0,
+                "no-unused-expressions": 0,
+                "no-return-assign": 0,
+                "react/prop-types": 0,
+                "react/jsx-no-undef": 0,
+                "react/jsx-filename-extension": 0,
+                "prefer-promise-reject-errors": 0,
+                "jest/no-hooks": 0
+            }
+        },
+        {
+            "files": [
+                "**/fixtures/*"
+            ],
+            "rules": {
+                "no-prototype-builtins": "off"
+            }
+        }
     ]
 }
