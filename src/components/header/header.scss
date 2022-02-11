@@ -1,0 +1,31 @@
+.header-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px;
+  padding-right: 10px;
+  bottom: 0px;
+  margin-bottom: 0px;
+  position: fixed;
+  width: 100%;
+  border-top-right-radius: 1000px 125px;
+  border-top-left-radius: 1172px 44px;
+}
+.bg-color-gray {
+  background-image: linear-gradient(150deg, rgb(243, 247, 255), rgb(254, 254, 255) );
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 82px;
+  height: 85px;
+  background-image: linear-gradient(150deg, rgb(20, 54, 246), rgb(4, 31, 119), rgb(75, 34, 109) );
+  color: rgb(255, 255, 255);
+  border-radius: 100%;
+  border-color: rgb(0, 0, 0);
+  border-width: 1px;
+  border-style: solid;
+  font-family: 'Bungee', Bungee, Bungee;
+}
